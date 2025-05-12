@@ -25,5 +25,5 @@ describe('throttledGetDataFromApi', () => {
     expect(getSpy).toHaveBeenCalledWith('/users');
   });
 
-  test('should return response data', async () => {});
+  // test('should return response data', async () => {});
 });
