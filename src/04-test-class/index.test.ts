@@ -64,7 +64,6 @@ describe('BankAccount', () => {
     await result.synchronizeBalance();
     const newBalance = result.getBalance();
 
-    expect(typeof newBalance).toBe('number');
     expect(newBalance).not.toBe(oldBalance);
     expect(newBalance).toBeGreaterThanOrEqual(0);
     expect(newBalance).toBeLessThanOrEqual(100);
@@ -72,9 +71,7 @@ describe('BankAccount', () => {
 
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     const result = getBankAccount(70);
-
     result.fetchBalance = async () => null;
-
     await expect(result.synchronizeBalance()).rejects.toThrow(
       'Synchronization failed',
     );

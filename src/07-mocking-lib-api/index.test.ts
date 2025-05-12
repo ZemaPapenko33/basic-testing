@@ -12,6 +12,7 @@ describe('throttledGetDataFromApi', () => {
     expect(spy).toHaveBeenCalledWith({
       baseURL: 'https://jsonplaceholder.typicode.com',
     });
+    spy.mockRestore();
   });
 
   test('should perform request to correct provided url', async () => {
@@ -24,6 +25,4 @@ describe('throttledGetDataFromApi', () => {
     jest.runAllTimers();
     expect(getSpy).toHaveBeenCalledWith('/users');
   });
-
-  // test('should return response data', async () => {});
 });
